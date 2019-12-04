@@ -9,7 +9,9 @@ function habilitaArrastar(evt){
 function recebeItem(evt){
     var idTarefa = evt.dataTransfer.getData("TAREFA");
     var tarefa = document.getElementById(idTarefa);
-    evt.target.appendChild(tarefa);
+    if (evt.target.id === "pendentes" || evt.target.id === "feitas" || evt.target.id === "fazendo"){
+       evt.target.appendChild(tarefa);
+    }
 }
 
 function buscaTarefas(){
@@ -24,6 +26,6 @@ function mostraTarefa(json){
     var num=1;
     for(i=0; i<qtde; i++){
         task = json[i];
-        document.getElementById("pendentes").innerHTML += '<div class="itemTarefa" draggable="true" ondragstart="pegaItem(event);" id="t'+num+'">'+task+'</div>';
+        document.getElementById("pendentes").innerHTML += '<div class="itemTarefa" draggable="true" ondragstart="pegaItem(event);" id="t'+num+'">'+ task.nome + " (" + task.responsavel + ")" +'</div>';
     }
 }
