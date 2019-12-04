@@ -16,6 +16,7 @@ function habilitaArrastar(evt){
 function recebeItem(evt){
     var idTarefa = evt.dataTransfer.getData("TAREFA");
     var tarefa = document.getElementById(idTarefa);
+<<<<<<< HEAD
     
     if (evt.target.id === "fazendo" || evt.target.id === "feitas" || evt.target.id === "pendentes"){
         evt.target.appendChild(tarefa);
@@ -57,6 +58,11 @@ function recebeItem(evt){
         document.getElementById("feitas").style =" height:"+document.getElementById("feitas").childElementCount*alturaTASK+"px;";
     }
 
+=======
+    if (evt.target.id === "pendentes" || evt.target.id === "feitas" || evt.target.id === "fazendo"){
+       evt.target.appendChild(tarefa);
+    }
+>>>>>>> 626359c171813eaa381288458de026408822a450
 }
 
 function buscaTarefas(){
@@ -71,7 +77,11 @@ function mostraTarefa(json){
     let task;
     for(i=1; i<=qtde; i++){
         task = json[i];
+<<<<<<< HEAD
         document.getElementById("pendentes").innerHTML += "<div class='itemTarefa' draggable='true' ondragstart='pegaItem(event);' id='t"+i+"'>"+task+"</div>";
+=======
+        document.getElementById("pendentes").innerHTML += '<div class="itemTarefa" draggable="true" ondragstart="pegaItem(event);" id="t'+num+'">'+ task.nome + " (" + task.responsavel + ")" +'</div>';
+>>>>>>> 626359c171813eaa381288458de026408822a450
     }
     document.getElementById("pendentes").style="height:"+(alturaTASK*qtde)+"px;";
    
