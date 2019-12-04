@@ -18,7 +18,7 @@ function buscaTarefas(){
       .then(json => mostraTarefa(json));
 }
 
-function mostraTarefa(){
+function mostraTarefa(json){
     var qtde = document.getElementById("qtde").value;
     var task;
     var num=1;
